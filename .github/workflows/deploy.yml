@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 新增：完整克隆所有提交，防止文件缺失
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
