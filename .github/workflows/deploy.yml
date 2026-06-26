@@ -23,30 +23,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
-          cache-dependency-path: "粘度分析仪/package-lock.json"
-          
       - name: Install dependencies
-        working-directory: ./粘度分析仪
         run: npm ci
-        
       - name: Build
-        working-directory: ./粘度分析仪
         run: npm run build
-        
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./粘度分析仪/dist"
-          
+          path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
